@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BaliProject version="3.2" title="Save128" device="LCMXO2-1200HC-4SG32C" default_implementation="MachXO2_1200">
+    <Options/>
+    <Implementation title="MachXO2_1200" dir="MachXO2_1200" description="MachXO2_1200" synthesis="lse" default_strategy="Strategy1">
+        <Options def_top="TinyFPGA_A2"/>
+        <Source name="Save128.v" type="Verilog" type_short="Verilog">
+            <Options top_module="TinyFPGA_A2"/>
+        </Source>
+        <Source name="Save128.lpf" type="Logic Preference" type_short="LPF">
+            <Options/>
+        </Source>
+    </Implementation>
+    <Strategy name="Strategy1" file="Save1281.sty"/>
+</BaliProject>
