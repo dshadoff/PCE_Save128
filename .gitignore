@@ -1,11 +1,16 @@
 *~
 *.bak
+*.ccl
 *.orig
 *.html
+*.spread_sheet.*
+*.spreadsheet*
+*Untitled.tpf
 firmware/Save128_tcr.dir/*
 firmware/MachXO2_1200/Save128_MachXO2_1200*.*
 firmware/MachXO2_1200/.vdbs/*.*
 firmware/MachXO2_1200/*.log
+firmware/MachXO2_1200/Untitled*.*
 firmware/MachXO2_1200/xxx_lse_*
 firmware/MachXO2_1200/TinyFPGA_A2_*.*
 firmware/MachXO2_1200/message.xml
