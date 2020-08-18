@@ -6,6 +6,9 @@
         <Source name="Save128.v" type="Verilog" type_short="Verilog">
             <Options top_module="TinyFPGA_A2"/>
         </Source>
+        <Source name="MachXO2_1200/MachXO2_1200.xcf" type="Programming Project File" type_short="Programming">
+            <Options/>
+        </Source>
         <Source name="Save128.lpf" type="Logic Preference" type_short="LPF">
             <Options/>
         </Source>
