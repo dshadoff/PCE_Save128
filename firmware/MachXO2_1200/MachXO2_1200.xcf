@@ -20,7 +20,7 @@
 				<BScanVal>0</BScanVal>
 			</Bypass>
 			<File>C:/devel/Diamond/PCE_Save128/firmware/MachXO2_1200/Save128_MachXO2_1200.bit</File>
-			<FileTime>08/16/20 19:34:51</FileTime>
+			<FileTime>10/13/20 00:53:13</FileTime>
 			<Operation>SRAM Erase,Program,Verify</Operation>
 			<Option>
 				<SVFVendor>JTAG STANDARD</SVFVendor>
@@ -28,6 +28,7 @@
 				<PreloadLength>208</PreloadLength>
 				<IOVectorData>0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF</IOVectorData>
 				<TCKFrequency>1.000000 MHz</TCKFrequency>
+				<SVFProcessor>SVF Processor</SVFProcessor>
 				<Usercode>0x00000000</Usercode>
 				<AccessMode>SRAM</AccessMode>
 			</Option>

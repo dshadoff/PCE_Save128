@@ -2,9 +2,9 @@
 <BaliProject version="3.2" title="Save128" device="LCMXO2-1200HC-4SG32C" default_implementation="MachXO2_1200">
     <Options/>
     <Implementation title="MachXO2_1200" dir="MachXO2_1200" description="MachXO2_1200" synthesis="lse" default_strategy="Strategy1">
-        <Options def_top="TinyFPGA_A2"/>
+        <Options/>
         <Source name="Save128.v" type="Verilog" type_short="Verilog">
-            <Options top_module="TinyFPGA_A2"/>
+            <Options top_module="top"/>
         </Source>
         <Source name="MachXO2_1200/MachXO2_1200.xcf" type="Programming Project File" type_short="Programming">
             <Options/>

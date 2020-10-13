@@ -3,6 +3,7 @@ del *.bak
 del *.ccl
 del *.orig
 del *.html
+del *.htm
 del *.spread_sheet.*
 del *.spreadsheet*
 del *Untitled.tpf
@@ -15,5 +16,6 @@ del MachXO2_1200\*.log
 del MachXO2_1200\Untitled*.*
 del MachXO2_1200\xxx_lse_*
 del /Q MachXO2_1200\TinyFPGA_A2_*.*
+del MachXO2_1200\top_prim.v
 del MachXO2_1200\message.xml
 
