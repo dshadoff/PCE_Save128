@@ -57,8 +57,6 @@ module top (
 //  reg [31:0] led_timer = 8'h00000000;
 
   reg init = 0;
-  reg spidrv_clk = 0;
-  reg spidrv_clk_prev = 0;
   reg [1:0] sp_phase = 2'b00;
   reg [23:0] spi_uberclock = 0;
   reg sp_clk;
@@ -74,6 +72,7 @@ module top (
   reg [31:0] cmd_buf = 32'b00000011_00000000_00000000_00000000; // = { SPI 3 = READ; 24 bit addr = 0 };
   reg  [15:0] rd_buf = 16'b00000000;
   reg  [15:0] wr_buf = 16'b00000000;
+  reg   [7:0] addr   = 8'b00000001;
   
 //  always @(posedge clk)
 //	begin
@@ -88,31 +87,33 @@ module top (
 			sp_cs_n   <= 1'b1;
 			sp_hold_n <= 1'b0;
 			init    <= 1'b1;
+			addr[7:0] <= 1'b1;
 
 			cmd_buf[31:24] <= 8'b00000011; // _00000000_00000000_00000000;
 			cmd_len        <= 32;
 			wr_buf[7:0]   <= 8'b00000000;
 			rw_len         <= 8;
-			sp_end_desel   <= 0;
+			sp_end_desel   <= 1;
 			sp_go          <= 1'b1;
 		  end
 		  
-		if (spi_uberclock[10] && !sp_active && !pin17)
+		if ((spi_uberclock[21:0] == 22'b0000000000000000000000) && !sp_active && !pin17)
 		  begin
-//			cmd_buf[31:0] <= 8'b00000011_00000000_00000000_00000001;
-//			cmd_len        <= 32;
+			cmd_buf[31:8] <= 32'b00000011_00000000_00000000;
+			cmd_buf[7:0]  <= addr[7:0];
+			cmd_len        <= 32;
+			addr           <= addr + 1'b1;
 
 			wr_buf[7:0]   <= 8'b00000000;
 			rd_buf[7:0]   <= 8'b00000000;
 			rw_len         <= 8;
-			sp_end_desel   <= 0;
+			sp_end_desel   <= 1;
 			sp_go          <= 1'b1;
 		  end
 
 		spi_uberclock  <= spi_uberclock + 1'b1;
         sp_phase[1:0] <= spi_uberclock[22:21];
 
-		spidrv_clk     <= spi_uberclock[21];
 		sp_miso        <= pin20_miso;
 
 		if (init && (spi_uberclock[20:0] == 21'b00000_00000000_00000000))
@@ -125,21 +126,25 @@ module top (
 			  begin
 //				// if active, set data on MOSI
 //				// if start transmission, sp_cs_n <= 0; sp_hold_n <= 1;
-				if (sp_active && sp_cs_n)
-				  begin
-					sp_cs_n <= 0;
-					sp_hold_n <= 1;
-				  end
+
+//				if (sp_active && sp_cs_n)
+//				  begin
+//					sp_cs_n <= 0;
+//					sp_hold_n <= 1;
+//				  end
 
 				if (sp_active)
 				  begin
+					sp_cs_n <= 0;
 					sp_hold_n <= 1;
+
 					if (cmd_len > 0)
 					  begin
 						sp_mosi       <= cmd_buf[31];
 						cmd_buf[31:1] <= cmd_buf[30:0];
 						cmd_buf[0]    <= 1'b0;
 					  end
+
 					else if (rw_len > 0)
 					  begin
 						sp_mosi     <= wr_buf[7];
@@ -151,9 +156,11 @@ module top (
 				// if end transmission, sp_cs_n <= 1 *and/or* sp_hold_n <= 0
 				else // if (!sp_active)
 				  begin
-					sp_hold_n <= 0;
+//					sp_hold_n <= 0;
 					if (sp_end_desel)
 					  sp_cs_n <= 1;
+					else
+					  sp_hold_n <= 0;
 				  end
 
 			  end
@@ -164,8 +171,18 @@ module top (
 			//
 			else if (sp_phase == 2'b01)
 			  begin
-				sp_clk <= 1;
 
+				if (sp_active)
+					sp_clk <= 1;
+
+			  end
+
+			//
+			// transition to phase 3 - SCLK stays high
+			//
+			else if (sp_phase == 2'b10)
+			  begin
+				  
 				if (sp_active && (cmd_len > 0))
 					cmd_len <= cmd_len - 1'b1;
 
@@ -177,12 +194,16 @@ module top (
 					rw_len      <= rw_len - 1'b1;
 				  end
 			  end
-
+			  
 			//
-			// transition to phase 3 - SCLK stays high
+			// transition to phase 0 - SCLK transitions to low
 			//
-			else if (sp_phase == 2'b10)
+			else if (sp_phase == 2'b11)
 			  begin
+
+				if (sp_active)
+					sp_clk <= 0;
+
 				if (sp_go)
 				  begin
 					sp_active <= 1;
@@ -193,17 +214,8 @@ module top (
 				  begin
 					sp_active <= 0;
 				  end
-			  end
-			  
-			//
-			// transition to phase 0 - SCLK transitions to low
-			//
-			else if (sp_phase == 2'b11)
-			  begin
-				sp_clk <= 0;
 
 			  end
-			  			
 
 		  end
 	end
