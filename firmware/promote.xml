@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<userSetting name="C:/devel/Diamond/PCE_Save128/firmware/promote.xml" version="Diamond (64-bit) 3.11.3.469" date="Tue Oct 13 00:54:19 2020" vendor="Lattice Semiconductor Corporation" >
+<userSetting name="C:/devel/Diamond/PCE_Save128/firmware/promote.xml" version="Diamond (64-bit) 3.11.3.469" date="Sun Oct 18 18:41:16 2020" vendor="Lattice Semiconductor Corporation" >
   <msg mid="35931002" type="Warning" />
   <msg mid="35901906" type="Error" />
+  <msg mid="35901038" type="Error" />
   <msg mid="35901208" type="Warning" />
   <msg mid="35901325" type="Error" />
   <msg mid="35901209" type="Warning" />

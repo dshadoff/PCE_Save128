@@ -20,7 +20,7 @@
 				<BScanVal>0</BScanVal>
 			</Bypass>
 			<File>C:/devel/Diamond/PCE_Save128/firmware/MachXO2_1200/Save128_MachXO2_1200.bit</File>
-			<FileTime>10/13/20 00:53:13</FileTime>
+			<FileTime>10/18/20 00:35:32</FileTime>
 			<Operation>SRAM Erase,Program,Verify</Operation>
 			<Option>
 				<SVFVendor>JTAG STANDARD</SVFVendor>
