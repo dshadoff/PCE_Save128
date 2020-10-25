@@ -89,22 +89,32 @@ module top (
 			init    <= 1'b1;
 			addr[7:0] <= 1'b1;
 
-			cmd_buf[31:24] <= 8'b00000011; // _00000000_00000000_00000000;
-			cmd_len        <= 32;
+//			cmd_buf[31:24] <= 8'b00000011; // _00000000_00000000_00000000;
+//			cmd_len        <= 32;
+//			wr_buf[7:0]   <= 8'b00000000;
+//			rw_len         <= 8;
+			cmd_buf[31:24] <= 8'b00000110; // Unlock write
+			cmd_len        <= 8;
 			wr_buf[7:0]   <= 8'b00000000;
-			rw_len         <= 8;
+			rw_len         <= 0;
 			sp_end_desel   <= 1;
 			sp_go          <= 1'b1;
 		  end
 		  
 		if ((spi_uberclock[21:0] == 22'b0000000000000000000000) && !sp_active && !pin17)
 		  begin
-			cmd_buf[31:8] <= 32'b00000011_00000000_00000000;
-			cmd_buf[7:0]  <= addr[7:0];
-			cmd_len        <= 32;
-			addr           <= addr + 1'b1;
+//			cmd_buf[31:8] <= 32'b0000001_00000000_00000000;
+//			cmd_buf[7:0]  <= addr[7:0];
+//			cmd_len        <= 32;
+//			addr           <= addr + 1'b1;
+//
+//			wr_buf[7:0]   <= 8'b00000000;
 
-			wr_buf[7:0]   <= 8'b00000000;
+			cmd_buf[31:0] <= 32'b00000010_00000000_00000000_00000001;
+			cmd_len        <= 32;
+
+			wr_buf[7:0]   <= 8'b00110010;
+
 			rd_buf[7:0]   <= 8'b00000000;
 			rw_len         <= 8;
 			sp_end_desel   <= 1;
