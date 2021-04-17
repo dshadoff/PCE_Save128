@@ -19,9 +19,10 @@
 				<BScanLen>1</BScanLen>
 				<BScanVal>0</BScanVal>
 			</Bypass>
-			<File>C:/devel/Diamond/PCE_Save128/firmware/MachXO2_1200/Save128_MachXO2_1200.bit</File>
-			<FileTime>10/18/20 00:35:32</FileTime>
-			<Operation>SRAM Erase,Program,Verify</Operation>
+			<File>C:/devel/Diamond/PCE_Save128/firmware/MachXO2_1200/Save128_MachXO2_1200.jed</File>
+			<FileTime>04/17/21 13:48:04</FileTime>
+			<JedecChecksum>0x5212</JedecChecksum>
+			<Operation>FLASH Erase,Program,Verify</Operation>
 			<Option>
 				<SVFVendor>JTAG STANDARD</SVFVendor>
 				<IOState>HighZ</IOState>
@@ -30,7 +31,7 @@
 				<TCKFrequency>1.000000 MHz</TCKFrequency>
 				<SVFProcessor>SVF Processor</SVFProcessor>
 				<Usercode>0x00000000</Usercode>
-				<AccessMode>SRAM</AccessMode>
+				<AccessMode>FLASH</AccessMode>
 			</Option>
 		</Device>
 	</Chain>
@@ -46,7 +47,7 @@
 	<CableOptions>
 		<CableName>USB</CableName>
 		<PortAdd>EzUSB-0</PortAdd>
-		<USBID>\\?\usb#vid_1134&amp;amp;pid_8001#6&amp;amp;4f97af2&amp;amp;0&amp;amp;4#</USBID>
+		<USBID>\\?\usb#vid_1134&amp;amp;pid_8001#6&amp;amp;4f97af2&amp;amp;0&amp;amp;2#</USBID>
 		<JTAGPinSetting>
 			TRST	ABSENT;
 			ISPEN	ABSENT;

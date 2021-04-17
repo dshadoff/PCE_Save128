@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BaliProject version="3.2" title="Save128" device="LCMXO2-1200HC-4SG32C" default_implementation="MachXO2_1200">
+    <Options/>
+    <Implementation title="MachXO2_1200" dir="MachXO2_1200" description="MachXO2_1200" synthesis="lse" default_strategy="Strategy1">
+        <Options/>
+        <Source name="Save128.v" type="Verilog" type_short="Verilog">
+            <Options top_module="top"/>
+        </Source>
+        <Source name="top.v" type="Verilog" type_short="Verilog" syn_sim="SynOnly">
+            <Options/>
+        </Source>
+        <Source name="testbench.v" type="Verilog" type_short="Verilog" syn_sim="SimOnly">
+            <Options/>
+        </Source>
+        <Source name="MachXO2_1200/MachXO2_1200.xcf" type="Programming Project File" type_short="Programming">
+            <Options/>
+        </Source>
+        <Source name="Save128.lpf" type="Logic Preference" type_short="LPF">
+            <Options/>
+        </Source>
+        <Source name="simulation/simulation.spf" type="Simulation Project File" type_short="SPF">
+            <Options/>
+        </Source>
+    </Implementation>
+    <Strategy name="Strategy1" file="Save1281.sty"/>
+</BaliProject>

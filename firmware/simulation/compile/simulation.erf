@@ -1,0 +1,39 @@
+MESSAGE "Pass 1. Scanning modules hierarchy."
+MESSAGE_SP VCP2113 "Module \$root found in current working library."
+BEGINPROGRESS Compiling...
+WARNING VCP2603 "Type of port 'clk_sample' is defined in module header and should not be overwritten in module body (mixing ANSI and NONANSI header style)." "C:/devel/Diamond/PCE_Save128/firmware/Save128.v" 74  35
+WARNING VCP2603 "Type of port 'clk_samplediv' is defined in module header and should not be overwritten in module body (mixing ANSI and NONANSI header style)." "C:/devel/Diamond/PCE_Save128/firmware/Save128.v" 75  41
+WARNING VCP2603 "Type of port 'o_ReadLED' is defined in module header and should not be overwritten in module body (mixing ANSI and NONANSI header style)." "C:/devel/Diamond/PCE_Save128/firmware/Save128.v" 117  36
+WARNING VCP2603 "Type of port 'o_WriteLED' is defined in module header and should not be overwritten in module body (mixing ANSI and NONANSI header style)." "C:/devel/Diamond/PCE_Save128/firmware/Save128.v" 118  36
+WARNING VCP2603 "Type of port 'sp_clk' is defined in module header and should not be overwritten in module body (mixing ANSI and NONANSI header style)." "C:/devel/Diamond/PCE_Save128/firmware/Save128.v" 147  18
+WARNING VCP2603 "Type of port 'sp_cs_n' is defined in module header and should not be overwritten in module body (mixing ANSI and NONANSI header style)." "C:/devel/Diamond/PCE_Save128/firmware/Save128.v" 148  19
+WARNING VCP2603 "Type of port 'sp_hold_n' is defined in module header and should not be overwritten in module body (mixing ANSI and NONANSI header style)." "C:/devel/Diamond/PCE_Save128/firmware/Save128.v" 149  21
+WARNING VCP2603 "Type of port 'sp_mosi' is defined in module header and should not be overwritten in module body (mixing ANSI and NONANSI header style)." "C:/devel/Diamond/PCE_Save128/firmware/Save128.v" 152  19
+UPDATEPROGRESS 17
+UPDATEPROGRESS 35
+MESSAGE "Pass 2. Processing instantiations."
+MESSAGE_SP VCP2876 "Implicit net declaration, symbol o_Active has not been declared in module MB128_TB." "C:/devel/Diamond/PCE_Save128/firmware/testbench.v" 75  23
+MESSAGE_SP VCP2876 "Implicit net declaration, symbol o_Data has not been declared in module MB128_TB." "C:/devel/Diamond/PCE_Save128/firmware/testbench.v" 76  19
+MESSAGE_SP VCP2876 "Implicit net declaration, symbol o_Ident has not been declared in module MB128_TB." "C:/devel/Diamond/PCE_Save128/firmware/testbench.v" 77  21
+MESSAGE_SP VCP2876 "Implicit net declaration, symbol o_ReadLED has not been declared in module MB128_TB." "C:/devel/Diamond/PCE_Save128/firmware/testbench.v" 78  25
+MESSAGE_SP VCP2876 "Implicit net declaration, symbol o_WriteLED has not been declared in module MB128_TB." "C:/devel/Diamond/PCE_Save128/firmware/testbench.v" 79  27
+MESSAGE_SP VCP2876 "Implicit net declaration, symbol sp_cs_n has not been declared in module MB128_TB." "C:/devel/Diamond/PCE_Save128/firmware/testbench.v" 81  21
+MESSAGE_SP VCP2876 "Implicit net declaration, symbol sp_clk has not been declared in module MB128_TB." "C:/devel/Diamond/PCE_Save128/firmware/testbench.v" 82  19
+MESSAGE_SP VCP2876 "Implicit net declaration, symbol sp_mosi has not been declared in module MB128_TB." "C:/devel/Diamond/PCE_Save128/firmware/testbench.v" 84  21
+MESSAGE_SP VCP2876 "Implicit net declaration, symbol sp_hold_n has not been declared in module MB128_TB." "C:/devel/Diamond/PCE_Save128/firmware/testbench.v" 85  25
+MESSAGE_SP VCP2876 "Implicit net declaration, symbol clk_sample has not been declared in module MB128_TB." "C:/devel/Diamond/PCE_Save128/firmware/testbench.v" 87  27
+UPDATEPROGRESS 45
+MESSAGE "Pass 3. Processing behavioral statements."
+WARNING VCP2641 "Redundant digits given in number 17'b000000000000000000." "C:/devel/Diamond/PCE_Save128/firmware/Save128.v" 95  35
+WARNING VCP2641 "Redundant digits given in number 17'b000000000000000000." "C:/devel/Diamond/PCE_Save128/firmware/Save128.v" 174  31
+UPDATEPROGRESS 50
+UPDATEPROGRESS 55
+WARNING VCP2641 "Redundant digits given in number 17'b000000000000000000." "C:/devel/Diamond/PCE_Save128/firmware/Save128.v" 569  36
+UPDATEPROGRESS 60
+UPDATEPROGRESS 65
+UPDATEPROGRESS 70
+UPDATEPROGRESS 75
+ERROR VCP5103 "Undeclared identifier: STATE_READTRAIL." "C:/devel/Diamond/PCE_Save128/firmware/testbench.v" 370  37
+UPDATEPROGRESS 80
+ENDPROGRESS Compiling...
+FAILURE "Compile failure 1 Errors 11 Warnings  Analysis time: 0[s]."
