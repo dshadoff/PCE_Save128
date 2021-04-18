@@ -18,6 +18,9 @@
         <Source name="Save128.lpf" type="Logic Preference" type_short="LPF">
             <Options/>
         </Source>
+        <Source name="simu2/simu2.spf" type="Simulation Project File" type_short="SPF">
+            <Options/>
+        </Source>
         <Source name="simulation/simulation.spf" type="Simulation Project File" type_short="SPF">
             <Options/>
         </Source>
