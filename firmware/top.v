@@ -1,28 +1,29 @@
 module top (
-  output o_Active,
+  output o_Active,		// drives Active LED and 74HC157
   input  reset_n,
-  input  i_Clk,
-  input  i_Data,
-  output o_Data,		// actual data
-  output o_Ident,		// identification
-  output o_WriteLED,
-  output o_ReadLED,
+  input  i_Clk,			// CLR joypad signal from PCE
+  input  i_Data,		// SEL joypad signal from PCE
+  output o_Data,		// actual data output (D0 on joypad)
+  output o_Ident,		// identification (D2 on joypad)
+  output o_WriteLED,	// status LED
+  output o_ReadLED,		// status LED
 
-  output sp_cs_n,
-  output sp_clk,
-  input  sp_miso,
-  output sp_mosi,
-  output sp_hold_n
-  
-//
-//  inout pin7_done,
-//  inout pin8_pgmn,
-//  inout pin9_jtgnb,
-//  inout pin10_sda,
-//  inout pin11_scl
-
+  output sp_cs_n,		// SPI FRAM /CS line
+  output sp_clk,		// SPI FRAM CLK line
+  input  sp_miso,		// SPI FRAM SO (data from chip) line
+  output sp_mosi,		// SPI FRAM SI (data into chip) line
+  output sp_hold_n		// SPI FRAM /HOLD line
 );
 
+// Quick notes:
+// ------------
+// - 'Active' is active positive (i.e. 74HC157 SEL='1' should select inputs from FPGA)
+// - LEDs are active positive (i.e. '1' level turns it on)
+// - 25V10 SPI chip is OK up to clocks at least 25MHz, and 40MHz in some cases
+//   (we divide the 44.33MHz clock into 4 phases, leaving roughly 11.08MHz clock)
+// - 25V10 SPI chip requires an SPI unlock command (0x02) to enable write
+//   -> importantly, this is PER WRITE TRANSACTION !
+//
   wire clk;
   OSCH #(
     .NOM_FREQ("44.33")			// (see page 29 of PLL guide)
@@ -50,12 +51,6 @@ MB128 MB128 (
 	.sp_miso(sp_miso),
 	.sp_mosi(sp_mosi),
 	.sp_hold_n(sp_hold_n)
-
-//	.pin7_done(pin7_done),
-//	.pin8_pgmn(pin8_pgmn),
-//	.pin9_jtgnb(pin9_jtgnb),
-//	.pin10_sda(pin10_sda),
-//	.pin11_scl(pin11_scl)
   );
 
 

@@ -10,15 +10,7 @@ module MB128_TB ();
 	reg i_Clk		= 1'b0;
 	reg r_Data		= 1'b0;
 	reg sp_miso		= 1'b1;
-//	reg o_Active;
-//	reg o_Data;
-//	reg o_Ident;
-//	reg o_ReadLED;
-//	reg o_WriteLED;
-//	reg sp_cs_n		= 1'b1;
-//	reg sp_clk;
-//	reg sp_mosi;
-//	reg sp_hold_n	= 1'b1;
+
 	wire [5:0] clk_samplediv;
 
 	reg syncdone	= 1'b0;
@@ -82,16 +74,7 @@ module MB128_TB ();
 	.sp_clk(sp_clk),
 	.sp_miso(sp_miso),
 	.sp_mosi(sp_mosi),
-	.sp_hold_n(sp_hold_n),
-	
-	.clk_sample(clk_sample),
-	.clk_samplediv(clk_samplediv[5:0])
-
-//	.pin7_done(pin7_done),
-//	.pin8_pgmn(pin8_pgmn),
-//	.pin9_jtgnb(pin9_jtgnb),
-//	.pin10_sda(pin10_sda),
-//	.pin11_scl(pin11_scl)
+	.sp_hold_n(sp_hold_n)
 	);
 	
 	initial
@@ -104,13 +87,13 @@ module MB128_TB ();
 //		trans_type		= WRITE;
 		
 		sync_send		= 8'hA8;
-		addr_send		= 10'b00_1010_0101;		// times 128 bytes = $05280
-		bitlen_send		= 3'b010;
-		bytelen_send	= 17'b0_0000_0000_0000_0010;
+		addr_send		= 10'b00_1010_0101;				// times 128 bytes = $05280
+		bitlen_send		= 3'b010;						// 2 bits
+		bytelen_send	= 17'b0_0000_0000_0000_0010;	// 2 bytes
 		byte_send		= 8'h62;
 		bit_send		= 2'b01;
 		
-		#1650;		// startup SPI write-unlock sequence
+		#1650;		// startup init sequence (not really necessary)
 
 		host_state = STATE_IDLE;
 		r_Data = 1'b0;

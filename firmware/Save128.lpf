@@ -10,11 +10,11 @@ LOCATE COMP "o_Data"     SITE "20" ;	// pin5 on TinyFPGA
 
 LOCATE COMP "reset_n"    SITE "21" ;	// pin6 on TinyFPGA
 
-//LOCATE COMP "pin7_done"  SITE "23" ;	// pin7_done on TinyFPGA
-//LOCATE COMP "pin8_pgmn"  SITE "25" ;	// pin8_pgmn on TinyFPGA
-//LOCATE COMP "pin9_jtgnb" SITE "26" ;	// pin9_jtgnb on TinyFPGA
-//LOCATE COMP "pin10_sda"  SITE "27" ;	// pin10_sda on TinyFPGA
-//LOCATE COMP "pin11_scl"  SITE "28" ;	// pin11_scl on TinyFPGA
+//LOCATE COMP "pin7_done"  SITE "23" ;	// pin7_done on TinyFPGA - unused
+//LOCATE COMP "pin8_pgmn"  SITE "25" ;	// pin8_pgmn on TinyFPGA - unused
+//LOCATE COMP "pin9_jtgnb" SITE "26" ;	// pin9_jtgnb on TinyFPGA - unused
+//LOCATE COMP "pin10_sda"  SITE "27" ;	// pin10_sda on TinyFPGA - unused
+//LOCATE COMP "pin11_scl"  SITE "28" ;	// pin11_scl on TinyFPGA - unused
 
 // pin 12_tdo on TinyFPGA (site "1") reserved for JTAG
 // pin 13_tdi on TinyFPGA (site "32") reserved for JTAG
@@ -26,7 +26,6 @@ LOCATE COMP "o_ReadLED"  SITE "5" ;		// pin17 on TinyFPGA
 
 LOCATE COMP "sp_cs_n"    SITE "8" ;		// pin18_cs on TinyFPGA
 LOCATE COMP "sp_clk"     SITE "9" ;		// pin19_sclk on TinyFPGA
-
 LOCATE COMP "sp_miso"    SITE "10" ;	// pin20_miso on TinyFPGA
 LOCATE COMP "sp_mosi"    SITE "11" ;	// pin21 on TinyFPGA
 LOCATE COMP "sp_hold_n"  SITE "12" ;	// pin22 on TinyFPGA
