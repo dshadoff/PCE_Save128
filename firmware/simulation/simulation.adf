@@ -41,3 +41,9 @@ Global=
 .\..\Save128.v=Verilog Source Code
 .\..\top.v=Verilog Source Code
 .\..\testbench.v=Verilog Source Code
+[SpecTracer]
+WindowVisible=0
+[HierarchyViewer]
+HierarchyInformation=
+ShowHide=ShowTopLevel
+Selected=

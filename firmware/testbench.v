@@ -232,7 +232,7 @@ module MB128_TB ();
 
 		// Output 17-cycle bytelen
 		count = 0;
-		host_state = STATE_LENBITS;
+		host_state = STATE_LENBYTES;
 		
 		r_Data = bytelen_send[count];
 		#joy_lo_ns; i_Clk = 1; #joy_hi_ns; i_Clk = 0; count = count + 1;

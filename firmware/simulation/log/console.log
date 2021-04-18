@@ -565,3 +565,307 @@ run 600000 ns
 # KERNEL: 100
 # KERNEL: 100
 # KERNEL: 100
+# KERNEL: **********************  TRAIL SENT  ***
+# KERNEL: 000
+# KERNEL: **********************  SIMULATION DONE  ***
+# RUNTIME: Info: RUNTIME_0068 testbench.v (413): $finish called.
+# KERNEL: Time: 386071 ns,  Iteration: 0,  Instance: /MB128_TB,  Process: @INITIAL#97_1@.
+# KERNEL: stopped at time: 386071 ns
+# VSIM: Simulation has finished. There are no more test vectors to simulate.
+run 600000 ns
+alog -O2 -sve -msg 5 -v2k5 -work work $dsn/../Save128.v
+# Pass 1. Scanning modules hierarchy.
+# Info: VCP2113 Module \$root found in current working library.
+# Warning: VCP2603 Save128.v : (74, 35): Type of port 'clk_sample' is defined in module header and should not be overwritten in module body (mixing ANSI and NONANSI header style).
+# Warning: VCP2603 Save128.v : (75, 41): Type of port 'clk_samplediv' is defined in module header and should not be overwritten in module body (mixing ANSI and NONANSI header style).
+# Warning: VCP2603 Save128.v : (119, 36): Type of port 'o_ReadLED' is defined in module header and should not be overwritten in module body (mixing ANSI and NONANSI header style).
+# Warning: VCP2603 Save128.v : (120, 36): Type of port 'o_WriteLED' is defined in module header and should not be overwritten in module body (mixing ANSI and NONANSI header style).
+# Warning: VCP2603 Save128.v : (149, 18): Type of port 'sp_clk' is defined in module header and should not be overwritten in module body (mixing ANSI and NONANSI header style).
+# Warning: VCP2603 Save128.v : (150, 19): Type of port 'sp_cs_n' is defined in module header and should not be overwritten in module body (mixing ANSI and NONANSI header style).
+# Warning: VCP2603 Save128.v : (151, 21): Type of port 'sp_hold_n' is defined in module header and should not be overwritten in module body (mixing ANSI and NONANSI header style).
+# Warning: VCP2603 Save128.v : (154, 19): Type of port 'sp_mosi' is defined in module header and should not be overwritten in module body (mixing ANSI and NONANSI header style).
+# Pass 2. Processing instantiations.
+# Pass 3. Processing behavioral statements.
+# Running Optimizer.
+# ELB/DAG code generating.
+# Info: VCP2113 Module \$root found in current working library.
+# $root top modules: top MB128_TB.
+# Compile success 0 Errors 8 Warnings  Analysis time: 0[s].
+# Warning: ALOG: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# done
+# ELBREAD: Elaboration process.
+# ELBREAD: Warning: Module 'MB128' does not have a `timescale directive, but previous modules do.
+# ELBREAD: Elaboration time 0.0 [s].
+# 
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# KERNEL: Time resolution set to 1ns.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... done : 0.0 [s]
+# SLP: Generation phase ...
+# SLP: Generation phase ... done : 0.6 [s]
+# SLP: Finished : 0.7 [s]
+# SLP: 0 primitives and 6 (100.00%) other processes in SLP
+# SLP: 97 (100.00%) signals in SLP and 0 interface signals
+# ELAB2: Elaboration final pass complete - time: 0.7 [s].
+# KERNEL: SLP loading done - time: 0.0 [s].
+# KERNEL: Warning: You are using the Active-HDL Lattice Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: SLP simulation initialization done - time: 0.0 [s].
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 5617 kB (elbread=1280 elab2=4204 kernel=133 sdf=0)
+# KERNEL: ASDB file was created in location C:\devel\Diamond\PCE_Save128\firmware\simulation\src\wave.asdb
+#  9:57 PM, April 17, 2021
+#  Simulation has been initialized
+# Waveform file 'untitled.awc' connected to 'C:/devel/Diamond/PCE_Save128/firmware/simulation/src/wave.asdb'.
+run 600000 ns
+# KERNEL: **********************  STARTING TESTBENCH  ***
+# KERNEL: **********************  SYNC BYTE SENT  ***
+# KERNEL:  1
+# KERNEL: **********************  SENT A1 BIT = 0 ***
+# KERNEL: **********************  SENT A2 BIT = 1 ***
+# KERNEL: **********************  REQUEST SENT  ***
+# KERNEL: **********************  ADDRESS SENT  ***
+# KERNEL: **********************  # BITS SENT  ***
+# KERNEL: **********************  # BYTES SENT  ***
+# KERNEL: **********************  BYTE 1 SENT  ***
+# KERNEL: **********************  BYTE 2 SENT  ***
+# KERNEL: **********************  BITS SENT  ***
+# KERNEL: **********************  TRAIL BITS:  ***
+# KERNEL: 000
+# KERNEL: 000
+# KERNEL: 000
+# KERNEL: **********************  TRAIL SENT  ***
+# KERNEL: 000
+# KERNEL: **********************  SIMULATION DONE  ***
+# RUNTIME: Info: RUNTIME_0068 testbench.v (413): $finish called.
+# KERNEL: Time: 386071 ns,  Iteration: 0,  Instance: /MB128_TB,  Process: @INITIAL#97_1@.
+# KERNEL: stopped at time: 386071 ns
+# VSIM: Simulation has finished. There are no more test vectors to simulate.
+run 600000 ns
+alog -O2 -sve -msg 5 -v2k5 -work work $dsn/../Save128.v
+# Pass 1. Scanning modules hierarchy.
+# Info: VCP2113 Module \$root found in current working library.
+# Warning: VCP2603 Save128.v : (74, 35): Type of port 'clk_sample' is defined in module header and should not be overwritten in module body (mixing ANSI and NONANSI header style).
+# Warning: VCP2603 Save128.v : (75, 41): Type of port 'clk_samplediv' is defined in module header and should not be overwritten in module body (mixing ANSI and NONANSI header style).
+# Warning: VCP2603 Save128.v : (119, 36): Type of port 'o_ReadLED' is defined in module header and should not be overwritten in module body (mixing ANSI and NONANSI header style).
+# Warning: VCP2603 Save128.v : (120, 36): Type of port 'o_WriteLED' is defined in module header and should not be overwritten in module body (mixing ANSI and NONANSI header style).
+# Warning: VCP2603 Save128.v : (149, 18): Type of port 'sp_clk' is defined in module header and should not be overwritten in module body (mixing ANSI and NONANSI header style).
+# Warning: VCP2603 Save128.v : (150, 19): Type of port 'sp_cs_n' is defined in module header and should not be overwritten in module body (mixing ANSI and NONANSI header style).
+# Warning: VCP2603 Save128.v : (151, 21): Type of port 'sp_hold_n' is defined in module header and should not be overwritten in module body (mixing ANSI and NONANSI header style).
+# Warning: VCP2603 Save128.v : (154, 19): Type of port 'sp_mosi' is defined in module header and should not be overwritten in module body (mixing ANSI and NONANSI header style).
+# Pass 2. Processing instantiations.
+# Pass 3. Processing behavioral statements.
+# Running Optimizer.
+# ELB/DAG code generating.
+# Info: VCP2113 Module \$root found in current working library.
+# $root top modules: top MB128_TB.
+# Compile success 0 Errors 8 Warnings  Analysis time: 0[s].
+# Warning: ALOG: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# done
+# ELBREAD: Elaboration process.
+# ELBREAD: Warning: Module 'MB128' does not have a `timescale directive, but previous modules do.
+# ELBREAD: Elaboration time 0.0 [s].
+# 
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# KERNEL: Time resolution set to 1ns.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... done : 0.0 [s]
+# SLP: Generation phase ...
+# SLP: Generation phase ... done : 0.6 [s]
+# SLP: Finished : 0.6 [s]
+# SLP: 0 primitives and 6 (100.00%) other processes in SLP
+# SLP: 97 (100.00%) signals in SLP and 0 interface signals
+# ELAB2: Elaboration final pass complete - time: 0.7 [s].
+# KERNEL: SLP loading done - time: 0.0 [s].
+# KERNEL: Warning: You are using the Active-HDL Lattice Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: SLP simulation initialization done - time: 0.0 [s].
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 5617 kB (elbread=1280 elab2=4204 kernel=133 sdf=0)
+# KERNEL: ASDB file was created in location C:\devel\Diamond\PCE_Save128\firmware\simulation\src\wave.asdb
+#  10:01 PM, April 17, 2021
+#  Simulation has been initialized
+# Waveform file 'untitled.awc' connected to 'C:/devel/Diamond/PCE_Save128/firmware/simulation/src/wave.asdb'.
+# 1 signal(s) traced.
+# 1 signal(s) traced.
+# 1 signal(s) traced.
+run 6000 ns
+# KERNEL: **********************  STARTING TESTBENCH  ***
+# KERNEL: stopped at time: 6 us
+run 6000 ns
+alog -O2 -sve -msg 5 -v2k5 -work work $dsn/../Save128.v
+# Pass 1. Scanning modules hierarchy.
+# Info: VCP2113 Module \$root found in current working library.
+# Warning: VCP2603 Save128.v : (74, 35): Type of port 'clk_sample' is defined in module header and should not be overwritten in module body (mixing ANSI and NONANSI header style).
+# Warning: VCP2603 Save128.v : (75, 41): Type of port 'clk_samplediv' is defined in module header and should not be overwritten in module body (mixing ANSI and NONANSI header style).
+# Warning: VCP2603 Save128.v : (119, 36): Type of port 'o_ReadLED' is defined in module header and should not be overwritten in module body (mixing ANSI and NONANSI header style).
+# Warning: VCP2603 Save128.v : (120, 36): Type of port 'o_WriteLED' is defined in module header and should not be overwritten in module body (mixing ANSI and NONANSI header style).
+# Warning: VCP2603 Save128.v : (149, 18): Type of port 'sp_clk' is defined in module header and should not be overwritten in module body (mixing ANSI and NONANSI header style).
+# Warning: VCP2603 Save128.v : (150, 19): Type of port 'sp_cs_n' is defined in module header and should not be overwritten in module body (mixing ANSI and NONANSI header style).
+# Warning: VCP2603 Save128.v : (151, 21): Type of port 'sp_hold_n' is defined in module header and should not be overwritten in module body (mixing ANSI and NONANSI header style).
+# Warning: VCP2603 Save128.v : (154, 19): Type of port 'sp_mosi' is defined in module header and should not be overwritten in module body (mixing ANSI and NONANSI header style).
+# Pass 2. Processing instantiations.
+# Pass 3. Processing behavioral statements.
+# Running Optimizer.
+# ELB/DAG code generating.
+# Info: VCP2113 Module \$root found in current working library.
+# $root top modules: top MB128_TB.
+# Compile success 0 Errors 8 Warnings  Analysis time: 0[s].
+# Warning: ALOG: The source is compiled without the -dbg switch. Line breakpoints and assertion debug will not be available.
+# done
+# ELBREAD: Elaboration process.
+# ELBREAD: Warning: Module 'MB128' does not have a `timescale directive, but previous modules do.
+# ELBREAD: Elaboration time 0.0 [s].
+# 
+# KERNEL: Main thread initiated.
+# KERNEL: Kernel process initialization phase.
+# KERNEL: Time resolution set to 1ns.
+# ELAB2: Elaboration final pass...
+# ELAB2: Create instances ...
+# ELAB2: Create instances complete.
+# SLP: Started
+# SLP: Elaboration phase ...
+# SLP: Elaboration phase ... done : 0.0 [s]
+# SLP: Generation phase ...
+# SLP: Generation phase ... done : 0.6 [s]
+# SLP: Finished : 0.7 [s]
+# SLP: 0 primitives and 6 (100.00%) other processes in SLP
+# SLP: 97 (100.00%) signals in SLP and 0 interface signals
+# ELAB2: Elaboration final pass complete - time: 0.8 [s].
+# KERNEL: SLP loading done - time: 0.0 [s].
+# KERNEL: Warning: You are using the Active-HDL Lattice Edition. The performance of simulation is running at a reduced rate.
+# KERNEL: Warning: Contact Aldec for available upgrade options - sales@aldec.com.
+# KERNEL: SLP simulation initialization done - time: 0.0 [s].
+# KERNEL: Kernel process initialization done.
+# Allocation: Simulator allocated 5617 kB (elbread=1280 elab2=4204 kernel=133 sdf=0)
+# KERNEL: ASDB file was created in location C:\devel\Diamond\PCE_Save128\firmware\simulation\src\wave.asdb
+#  10:03 PM, April 17, 2021
+#  Simulation has been initialized
+# Waveform file 'untitled.awc' connected to 'C:/devel/Diamond/PCE_Save128/firmware/simulation/src/wave.asdb'.
+run 6000 ns
+# KERNEL: **********************  STARTING TESTBENCH  ***
+# KERNEL: stopped at time: 6 us
+run 6000 ns
+# KERNEL: stopped at time: 12 us
+run 6000 ns
+# KERNEL: stopped at time: 18 us
+run 6000 ns
+# KERNEL: stopped at time: 24 us
+run 6000 ns
+# KERNEL: stopped at time: 30 us
+run 6000 ns
+# KERNEL: stopped at time: 36 us
+run 6000 ns
+# KERNEL: stopped at time: 42 us
+run 6000 ns
+# KERNEL: stopped at time: 48 us
+run 6000 ns
+# KERNEL: stopped at time: 54 us
+run 6000 ns
+# KERNEL: **********************  SYNC BYTE SENT  ***
+# KERNEL:  1
+# KERNEL: stopped at time: 60 us
+run 6000 ns
+# KERNEL: **********************  SENT A1 BIT = 0 ***
+# KERNEL: stopped at time: 66 us
+run 6000 ns
+# KERNEL: **********************  SENT A2 BIT = 1 ***
+# KERNEL: stopped at time: 72 us
+run 6000 ns
+# KERNEL: **********************  REQUEST SENT  ***
+# KERNEL: stopped at time: 78 us
+run 6000 ns
+# KERNEL: stopped at time: 84 us
+run 6000 ns
+# KERNEL: stopped at time: 90 us
+run 6000 ns
+# KERNEL: stopped at time: 96 us
+run 6000 ns
+# KERNEL: stopped at time: 102 us
+run 6000 ns
+# KERNEL: stopped at time: 108 us
+run 6000 ns
+# KERNEL: stopped at time: 114 us
+run 6000 ns
+# KERNEL: stopped at time: 120 us
+run 6000 ns
+# KERNEL: stopped at time: 126 us
+run 6000 ns
+# KERNEL: stopped at time: 132 us
+run 6000 ns
+# KERNEL: **********************  ADDRESS SENT  ***
+# KERNEL: stopped at time: 138 us
+run 6000 ns
+# KERNEL: stopped at time: 144 us
+# 1 signal(s) traced.
+# 1 signal(s) traced.
+# 1 signal(s) traced.
+run 6000 ns
+# KERNEL: stopped at time: 150 us
+run 6000 ns
+# KERNEL: **********************  # BITS SENT  ***
+# KERNEL: stopped at time: 156 us
+run 6000 ns
+# KERNEL: stopped at time: 162 us
+run 6000 ns
+# KERNEL: stopped at time: 168 us
+run 6000 ns
+# KERNEL: stopped at time: 174 us
+run 6000 ns
+# KERNEL: stopped at time: 180 us
+run 6000 ns
+# KERNEL: stopped at time: 186 us
+run 6000 ns
+# KERNEL: stopped at time: 192 us
+run 6000 ns
+# KERNEL: stopped at time: 198 us
+run 6000 ns
+# KERNEL: stopped at time: 204 us
+run 6000 ns
+# KERNEL: stopped at time: 210 us
+run 6000 ns
+# KERNEL: stopped at time: 216 us
+run 6000 ns
+# KERNEL: stopped at time: 222 us
+run 6000 ns
+# KERNEL: stopped at time: 228 us
+run 6000 ns
+# KERNEL: stopped at time: 234 us
+run 6000 ns
+# KERNEL: stopped at time: 240 us
+run 6000 ns
+# KERNEL: stopped at time: 246 us
+run 6000 ns
+# KERNEL: stopped at time: 252 us
+run 6000 ns
+# KERNEL: **********************  # BYTES SENT  ***
+# KERNEL: stopped at time: 258 us
+run 6000 ns
+# KERNEL: stopped at time: 264 us
+run 6000 ns
+# KERNEL: stopped at time: 270 us
+run 600000 ns
+# KERNEL: **********************  BYTE 1 SENT  ***
+# KERNEL: **********************  BYTE 2 SENT  ***
+# KERNEL: **********************  BITS SENT  ***
+# KERNEL: **********************  TRAIL BITS:  ***
+# KERNEL: 100
+# KERNEL: 100
+# KERNEL: 100
+# KERNEL: **********************  TRAIL SENT  ***
+# KERNEL: 000
+# KERNEL: **********************  SIMULATION DONE  ***
+# RUNTIME: Info: RUNTIME_0068 testbench.v (413): $finish called.
+# KERNEL: Time: 386071 ns,  Iteration: 0,  Instance: /MB128_TB,  Process: @INITIAL#97_1@.
+# KERNEL: stopped at time: 386071 ns
+# VSIM: Simulation has finished. There are no more test vectors to simulate.

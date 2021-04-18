@@ -197,16 +197,23 @@ module MB128 (
 //-----------------------------------------------------------------------------------
 //	r_Startup_Count <= r_Startup_Count + 1;
 	
+	i_Clk_ShiftReg <= {i_Clk_ShiftReg[28:0], i_Clk };
+
+	if (i_Clk_ShiftReg == 30'b000000_00000000_00000000_00000000)
+		i_Clk_Debounce <= 0;
+
+	if (i_Clk_ShiftReg == 30'b111111_11111111_11111111_11111111)
+		i_Clk_Debounce <= 1;
 	
 // take a sample of the joypad port every (SAMPLE_FREQ)'th cycle
-	clk_sample <= 1'b0;
-	if (clk_samplediv == 5'b0)
-	  begin
-		clk_sample <= 1'b1;
-		clk_samplediv <= SAMPLE_FREQ;
-	  end
-	else
-	  clk_samplediv <= clk_samplediv - 1;
+//	clk_sample <= 1'b0;
+//	if (clk_samplediv == 5'b0)
+//	  begin
+//		clk_sample <= 1'b1;
+//		clk_samplediv <= SAMPLE_FREQ;
+//	  end
+//	else
+//	  clk_samplediv <= clk_samplediv - 1;
 
 
 ////////////////////////////////////
@@ -478,6 +485,7 @@ module MB128 (
 						r_MB128_Addr_Curr	<= r_MB128_Addr_Curr + 1;
 						wr_buf[7:0]		<= 8'b00000000;
 						write_in_transit	<= 0;
+						trigger_wren		<= 1;
 					  end
 
 				  end
@@ -504,8 +512,8 @@ module MB128 (
 	if ((r_State_Prev != STATE_WRITEBITS) && (r_State == STATE_WRITEBITS) && (sp_active == 0))
 		ram_data[7:0] <= r_FetchWrite_Byte[7:0];
 
-	if (clk_sample == 1'b1)	// sample joypad input
-	  begin
+//	if (clk_sample == 1'b1)	// sample joypad input
+//	  begin
 		
 		if ((i_Clk == 0) && (r_Stop_Active == 1'b1))		// reset r_Active on the down-swing of i_Clk
 		  begin
@@ -513,8 +521,8 @@ module MB128 (
 			r_Stop_Active	<= 0;
 		  end
 
-		i_Clk_Prev <= i_Clk;
-		if ((i_Clk != i_Clk_Prev) && (i_Clk == 1'b1))		// is joypad 'i_Clk' a posedge transition ?
+		i_Clk_Prev <= i_Clk_Debounce;
+		if ((i_Clk_Debounce != i_Clk_Prev) && (i_Clk_Debounce == 1'b1))		// is joypad 'i_Clk_Debounce' a posedge transition ?
 		  begin
 
 			case (r_State)									// state machine
@@ -864,9 +872,9 @@ module MB128 (
 
 			endcase
 
-		  end // if i_Clk posedge
+		  end // if i_Clk_Debounce posedge
 
-	  end
+//	  end
 
 
 	end		// always
@@ -876,8 +884,8 @@ module MB128 (
 //
 //assign o_Active = (r_State != STATE_IDLE);
 assign o_Active = r_Active;
-assign o_Data   = i_Clk ? r_Pos_Edge[0] : r_Neg_Edge[0];
-assign o_Ident  = i_Clk ? r_Pos_Edge[2] : r_Neg_Edge[2];
+assign o_Data   = i_Clk_Debounce ? r_Pos_Edge[0] : r_Neg_Edge[0];
+assign o_Ident  = i_Clk_Debounce ? r_Pos_Edge[2] : r_Neg_Edge[2];
 
 
 endmodule
