@@ -224,7 +224,7 @@ module MB128 (
 		// SPI is run as 4 phases of output; it may be possible to increase
 		// this by consolidating actions into only sp_clk transition phases
 		//
-		sp_phase <= sp_phase + 1;
+		sp_phase <= sp_phase + 1'b1;
 
 		if (init)
 		  begin
@@ -392,7 +392,7 @@ module MB128 (
 					if (read_in_transit)
 					  begin
 						r_Read_Byte[7:0]	<= rd_buf[7:0];
-						r_MB128_Addr_Curr	<= r_MB128_Addr_Curr + 1;
+						r_MB128_Addr_Curr	<= r_MB128_Addr_Curr + 1'b1;
 						read_in_transit		<= 0;
 					  end
 
@@ -404,7 +404,7 @@ module MB128 (
 
 					if (write_in_transit)
 					  begin
-						r_MB128_Addr_Curr	<= r_MB128_Addr_Curr + 1;
+						r_MB128_Addr_Curr	<= r_MB128_Addr_Curr + 1'b1;
 						wr_buf[7:0]		<= 8'b00000000;
 						write_in_transit	<= 0;
 						trigger_wren		<= 1;
