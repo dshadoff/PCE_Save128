@@ -83,6 +83,8 @@ module MB128 (
   reg         r_Req              = CMD_READ;
 //  reg         r_Pos_Active       = 1'b0;
 //  reg         r_Neg_Active       = 1'b0;
+  reg         r_Active           = 1'b0;
+  reg         r_Stop_Active      = 1'b0;
 
 //
 //NOTE: TRIGGER_WRENABLE NOW DONE WHEN GETTING ADDRESS INPUT DURING WRITE TRANSACTION
@@ -92,7 +94,7 @@ module MB128 (
   reg [5:0]  r_Bit_Count        = 6'b000000;
   reg [16:0] r_MB128_Addr       = 17'b00000000000000000;
   reg [16:0] r_MB128_Addr_Curr  = 17'b00000000000000000;
-  reg [16:0] r_MB128_Bytes      = 17'b000000000000000000;
+  reg [16:0] r_MB128_Bytes      = 17'b00000000000000000;
   reg [2:0]  r_MB128_Bits       = 3'b000;
   reg [3:0]  r_Pos_Edge         = 4'b0000;
   reg [3:0]  r_Neg_Edge         = 4'b0000;
@@ -171,12 +173,12 @@ module MB128 (
 		r_State            <= STATE_IDLE;
 		r_MB128_Addr       <= 17'b00000000000000000;
 		r_MB128_Addr_Curr  <= 17'b00000000000000000;
-		r_MB128_Bytes      <= 17'b000000000000000000;
+		r_MB128_Bytes      <= 17'b00000000000000000;
 		r_MB128_Bits       <= 3'b000;
 		r_Bit_Count        <= 6'b000000;
 		r_Register         <= 8'b00000000;
-//		r_Pos_Active       <= 1'b0;
-//		r_Neg_Active       <= 1'b0;
+		r_Active           <= 1'b0;
+		r_Stop_Active      <= 1'b0;
 		r_Pos_Edge         <= 4'b0000;
 		r_Neg_Edge         <= 4'b0000;
 		o_ReadLED          <= 1'b0;
@@ -505,6 +507,12 @@ module MB128 (
 	if (clk_sample == 1'b1)	// sample joypad input
 	  begin
 		
+		if ((i_Clk == 0) && (r_Stop_Active == 1'b1))		// reset r_Active on the down-swing of i_Clk
+		  begin
+			r_Active		<= 0;
+			r_Stop_Active	<= 0;
+		  end
+
 		i_Clk_Prev <= i_Clk;
 		if ((i_Clk != i_Clk_Prev) && (i_Clk == 1'b1))		// is joypad 'i_Clk' a posedge transition ?
 		  begin
@@ -521,13 +529,12 @@ module MB128 (
 
 				  r_Pos_Edge	<= 4'b0000;
 				  r_Neg_Edge	<= 4'b0000;
-//
-//				  r_Pos_Active	<= 1'b0;				// no sync byte yet
-//				  r_Neg_Active	<= 1'b0;
+				  
+				  r_Active		<= 1'b0;				// no sync byte yet
+				  r_Stop_Active	<= 1'b0;
 
 				  if (( { i_Data, r_Register[7:1] } == 8'hA8) && (r_Bit_Count >= 7)) begin
-//					  r_Pos_Active	<= 1'b1;				// sync byte identified; engage MB128 mode
-//					  r_Neg_Active	<= 1'b1;
+					  r_Active	<= 1'b1;				// sync byte identified; engage MB128 mode
 					  
 					  r_State		<= STATE_A8_A1;
 					  r_Bit_Count	<= 1'b0;
@@ -566,7 +573,7 @@ module MB128 (
 				  
 				  r_MB128_Addr  <= 17'b00000000000000000;
 				  r_MB128_Bits  <=  3'b000;
-				  r_MB128_Bytes <= 17'b000000000000000000;
+				  r_MB128_Bytes <= 17'b00000000000000000;
 
 				  if (i_Data == CMD_WRITE)
 					o_WriteLED	<= 1'b1;
@@ -733,8 +740,7 @@ module MB128 (
 						r_State			<= STATE_IDLE;
 						r_Bit_Count		<= 1'b0;
 						r_Register		<= 8'b00000000;
-//						r_Neg_Active	<= 1'b0;
-//						r_Pos_Active	<= 1'b0;
+						r_Stop_Active	<= 1'b1;
 						o_ReadLED   	<= 1'b0;
 						o_WriteLED 	 	<= 1'b0;
 					  end
@@ -835,8 +841,7 @@ module MB128 (
 						r_State			<= STATE_IDLE;
 						r_Register		<= 8'b00000000;
 						r_Bit_Count		<= 1'b0;
-//						r_Pos_Active	<= 1'b0;
-//						r_Neg_Active	<= 1'b0;
+						r_Stop_Active	<= 1'b1;
 						r_Register		<= 7'b0000000;
 						o_ReadLED   	<= 1'b0;
 						o_WriteLED 	 	<= 1'b0;
@@ -848,13 +853,13 @@ module MB128 (
 
 			  default:										// unaccounted state - return to IDLE
 				begin
-				  r_State      <= STATE_IDLE;
-				  r_Bit_Count  <= 1'b0;
-				  r_Register   <= 8'b00000000;
-//				  r_Neg_Active <= 1'b0;
-				  r_Register   <= 7'b0000000;
-				  o_ReadLED    <= 1'b0;
-				  o_WriteLED   <= 1'b0;
+				  r_State		<= STATE_IDLE;
+				  r_Bit_Count	<= 1'b0;
+				  r_Register	<= 8'b00000000;
+				  r_Stop_Active	<= 1'b1;
+				  r_Register	<= 7'b0000000;
+				  o_ReadLED		<= 1'b0;
+				  o_WriteLED	<= 1'b0;
 				end
 
 			endcase
@@ -869,7 +874,8 @@ module MB128 (
 
 // THIS IS PART OF MB128 RETURN SET:
 //
-assign o_Active = (r_State != STATE_IDLE);
+//assign o_Active = (r_State != STATE_IDLE);
+assign o_Active = r_Active;
 assign o_Data   = i_Clk ? r_Pos_Edge[0] : r_Neg_Edge[0];
 assign o_Ident  = i_Clk ? r_Pos_Edge[2] : r_Neg_Edge[2];
 

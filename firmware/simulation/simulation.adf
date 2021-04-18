@@ -35,7 +35,9 @@ Count=0
 Global=
 [Files]
 /..\..\Save128.v=-1
+/..\..\top.v=-1
 /..\..\testbench.v=-1
 [Files.Data]
 .\..\Save128.v=Verilog Source Code
+.\..\top.v=Verilog Source Code
 .\..\testbench.v=Verilog Source Code

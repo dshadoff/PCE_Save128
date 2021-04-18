@@ -10,11 +10,11 @@ LOCATE COMP "o_Data"     SITE "20" ;	// pin5 on TinyFPGA
 
 LOCATE COMP "reset_n"    SITE "21" ;	// pin6 on TinyFPGA
 
-LOCATE COMP "pin7_done"  SITE "23" ;	// pin7_done on TinyFPGA
-LOCATE COMP "pin8_pgmn"  SITE "25" ;	// pin8_pgmn on TinyFPGA
-LOCATE COMP "pin9_jtgnb" SITE "26" ;	// pin9_jtgnb on TinyFPGA
-LOCATE COMP "pin10_sda"  SITE "27" ;	// pin10_sda on TinyFPGA
-LOCATE COMP "pin11_scl"  SITE "28" ;	// pin11_scl on TinyFPGA
+//LOCATE COMP "pin7_done"  SITE "23" ;	// pin7_done on TinyFPGA
+//LOCATE COMP "pin8_pgmn"  SITE "25" ;	// pin8_pgmn on TinyFPGA
+//LOCATE COMP "pin9_jtgnb" SITE "26" ;	// pin9_jtgnb on TinyFPGA
+//LOCATE COMP "pin10_sda"  SITE "27" ;	// pin10_sda on TinyFPGA
+//LOCATE COMP "pin11_scl"  SITE "28" ;	// pin11_scl on TinyFPGA
 
 // pin 12_tdo on TinyFPGA (site "1") reserved for JTAG
 // pin 13_tdi on TinyFPGA (site "32") reserved for JTAG

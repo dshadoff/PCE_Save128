@@ -5,36 +5,36 @@
             <Task name="IBIS" build_result="0" update_result="3" update_time="0"/>
             <Task name="TimingSimFileVlg" build_result="0" update_result="3" update_time="0"/>
             <Task name="TimingSimFileVHD" build_result="0" update_result="3" update_time="0"/>
-            <Task name="Bitgen" build_result="2" update_result="0" update_time="1618699370"/>
-            <Task name="Jedecgen" build_result="0" update_result="2" update_time="1618683595"/>
+            <Task name="Bitgen" build_result="0" update_result="2" update_time="1618702970"/>
+            <Task name="Jedecgen" build_result="2" update_result="0" update_time="1618710300"/>
         </Milestone>
-        <Milestone name="Map" build_result="2" build_time="1618699358">
-            <Task name="Map" build_result="2" update_result="0" update_time="1618699358"/>
+        <Milestone name="Map" build_result="2" build_time="1618710289">
+            <Task name="Map" build_result="2" update_result="0" update_time="1618710289"/>
             <Task name="MapTrace" build_result="0" update_result="3" update_time="0"/>
-            <Task name="MapVerilogSimFile" build_result="2" update_result="0" update_time="1618699359"/>
+            <Task name="MapVerilogSimFile" build_result="2" update_result="0" update_time="1618710290"/>
             <Task name="MapVHDLSimFile" build_result="0" update_result="3" update_time="0"/>
         </Milestone>
-        <Milestone name="PAR" build_result="2" build_time="1618699367">
-            <Task name="PAR" build_result="2" update_result="0" update_time="1618699367"/>
-            <Task name="PARTrace" build_result="2" update_result="0" update_time="1618699367"/>
+        <Milestone name="PAR" build_result="2" build_time="1618710298">
+            <Task name="PAR" build_result="2" update_result="0" update_time="1618710298"/>
+            <Task name="PARTrace" build_result="2" update_result="0" update_time="1618710298"/>
             <Task name="IOTiming" build_result="0" update_result="3" update_time="0"/>
         </Milestone>
-        <Milestone name="Synthesis" build_result="2" build_time="1618699357">
-            <Task name="Lattice_Synthesis" build_result="2" update_result="0" update_time="1618699357"/>
-            <Task name="LSE_Compile" build_result="2" update_result="0" update_time="1618699370"/>
+        <Milestone name="Synthesis" build_result="2" build_time="1618710288">
+            <Task name="Lattice_Synthesis" build_result="2" update_result="0" update_time="1618710288"/>
+            <Task name="LSE_Compile" build_result="2" update_result="0" update_time="1618710287"/>
         </Milestone>
-        <Report name=".vdbs/Save128_MachXO2_1200_map.vdb" last_build_time="1618699358" last_build_size="139726"/>
-        <Report name="Save128_MachXO2_1200.bgn" last_build_time="1618699370" last_build_size="4093"/>
-        <Report name="Save128_MachXO2_1200.bit" last_build_time="1618699370" last_build_size="12252"/>
+        <Report name=".vdbs/Save128_MachXO2_1200_map.vdb" last_build_time="1618710289" last_build_size="145538"/>
+        <Report name="Save128_MachXO2_1200.bgn" last_build_time="1618710300" last_build_size="4367"/>
+        <Report name="Save128_MachXO2_1200.bit" last_build_time="1618702970" last_build_size="12252"/>
         <Report name="Save128_MachXO2_1200.ior" last_build_time="1602554297" last_build_size="2465"/>
-        <Report name="Save128_MachXO2_1200.jed" last_build_time="1618683595" last_build_size="350318"/>
-        <Report name="Save128_MachXO2_1200.lsedata" last_build_time="1618699355" last_build_size="891841"/>
-        <Report name="Save128_MachXO2_1200.ncd" last_build_time="1618699367" last_build_size="568334"/>
-        <Report name="Save128_MachXO2_1200.ngd" last_build_time="1618699357" last_build_size="433635"/>
+        <Report name="Save128_MachXO2_1200.jed" last_build_time="1618710300" last_build_size="350318"/>
+        <Report name="Save128_MachXO2_1200.lsedata" last_build_time="1618710287" last_build_size="906199"/>
+        <Report name="Save128_MachXO2_1200.ncd" last_build_time="1618710297" last_build_size="588998"/>
+        <Report name="Save128_MachXO2_1200.ngd" last_build_time="1618710288" last_build_size="448628"/>
         <Report name="Save128_MachXO2_1200.tw1" last_build_time="1602554291" last_build_size="8953"/>
-        <Report name="Save128_MachXO2_1200.twr" last_build_time="1618699367" last_build_size="49284"/>
-        <Report name="Save128_MachXO2_1200_map.ncd" last_build_time="1618699357" last_build_size="376152"/>
-        <Report name="Save128_MachXO2_1200_mapvo.sdf" last_build_time="1618699359" last_build_size="395993"/>
-        <Report name="Save128_MachXO2_1200_mapvo.vo" last_build_time="1618699359" last_build_size="405578"/>
+        <Report name="Save128_MachXO2_1200.twr" last_build_time="1618710298" last_build_size="52186"/>
+        <Report name="Save128_MachXO2_1200_map.ncd" last_build_time="1618710289" last_build_size="388851"/>
+        <Report name="Save128_MachXO2_1200_mapvo.sdf" last_build_time="1618710290" last_build_size="411132"/>
+        <Report name="Save128_MachXO2_1200_mapvo.vo" last_build_time="1618710290" last_build_size="422322"/>
     </Strategy>
 </BuildStatus>

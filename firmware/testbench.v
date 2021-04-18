@@ -117,7 +117,7 @@ module MB128_TB ();
 		#joy_lo_ns; i_Clk = 1; #joy_hi_ns; i_Clk = 0; count = count + 1;
 
 		count = 0;
-		
+	
 		r_Data = sync_send[count];
 		#joy_lo_ns; i_Clk = 1; #joy_hi_ns; i_Clk = 0; count = count + 1;
 
@@ -148,10 +148,12 @@ module MB128_TB ();
 		
 		// Output 2 blank cycles for recognition
 		r_Data = 1'b0;
-		host_state = STATE_A8_A1;
+		host_state = 4'b0001;
+		$display(host_state);
+		
 		#joy_lo_ns; i_Clk = 1; #joy_hi_ns; i_Clk = 0; count = count + 1;
-
-		$display("**********************  SENT A1 BIT = 0 ***");
+		if (host_state == count)
+			$display("**********************  SENT A1 BIT = 0 ***");
 
 		r_Data = 1'b1;
 		host_state = STATE_A8_A2;
@@ -287,7 +289,7 @@ module MB128_TB ();
 	    $display("**********************  # BYTES SENT  ***");
 
 
-		// Output 3-cycle bitlen
+		// Read/Write byte(s)
 		//
 		count = 0;
 		host_state = STATE_READ;
@@ -350,7 +352,7 @@ module MB128_TB ();
 	    $display("**********************  BYTE 2 SENT  ***");
 
 
-		// READ/WRITE TRAIL
+		// Read/Write bits
 		//
 		count = 0;
 		host_state = STATE_READBITS;
@@ -367,32 +369,41 @@ module MB128_TB ();
 		// READ/WRITE TRAIL
 		//
 		count = 0;
-		host_state = STATE_READTRAIL;
+		host_state = STATE_READ_TRAIL;
 
 		r_Data = 1'b0;
 		#joy_lo_ns; i_Clk = 1; #joy_hi_ns; i_Clk = 0; count = count + 1;
+	    $display("**********************  TRAIL BITS:  ***");
+		$display(o_Active, o_Ident, o_Data);
 		
 		r_Data = 1'b0;
 		#joy_lo_ns; i_Clk = 1; #joy_hi_ns; i_Clk = 0; count = count + 1;
+		$display(o_Active, o_Ident, o_Data);
 		
 		r_Data = 1'b0;
 		#joy_lo_ns; i_Clk = 1; #joy_hi_ns; i_Clk = 0; count = count + 1;
+		$display(o_Active, o_Ident, o_Data);
 		
 		if (trans_type == WRITE) begin
 			r_Data = 1'b0;
 			#joy_lo_ns; i_Clk = 1; #joy_hi_ns; i_Clk = 0; count = count + 1;
+			$display(o_Active, o_Ident, o_Data);
 			
 			r_Data = 1'b0;
 			#joy_lo_ns; i_Clk = 1; #joy_hi_ns; i_Clk = 0; count = count + 1;
+			$display(o_Active, o_Ident, o_Data);
 		end
 		traildone = 1'b1;
 
 	    $display("**********************  TRAIL SENT  ***");
 
+		#100;
 
 		// Output extra '0'
 		count = 0;
 		host_state = STATE_IDLE;
+
+		$display(o_Active, o_Ident, o_Data);
 		
 		r_Data = 1'b0;
 		#joy_lo_ns; i_Clk = 1; #joy_hi_ns; i_Clk = 0; count = count + 1;
