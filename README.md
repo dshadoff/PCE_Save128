@@ -17,6 +17,7 @@ SPI interface was not used; instead, a very limited set of SPI commands is
 custom-written for communication with the FeRAM chip.
 
 This repository includes the following folders:
+
 EAGLE :
 - these files are the project deisgn files for the PC Board in EAGLE
 - Additional information for SMD assembly by JLCPCB are also included, files bom.csv and assembly.csv
