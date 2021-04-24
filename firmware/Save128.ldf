@@ -6,6 +6,12 @@
         <Source name="Save128.v" type="Verilog" type_short="Verilog">
             <Options top_module="top"/>
         </Source>
+        <Source name="top.v" type="Verilog" type_short="Verilog" syn_sim="SynOnly">
+            <Options/>
+        </Source>
+        <Source name="testbench.v" type="Verilog" type_short="Verilog" syn_sim="SimOnly">
+            <Options/>
+        </Source>
         <Source name="MachXO2_1200/MachXO2_1200.xcf" type="Programming Project File" type_short="Programming">
             <Options/>
         </Source>
